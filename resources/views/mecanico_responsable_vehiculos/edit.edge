@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+ <a class="btn btn-danger" href="/mecanico_vehiculo">Regresar al Menu Asignacion</a>
+  <div class="text-center">
+    <h1>EDITAR ASIGNACION DE VEHICULO A </h1>
+  </div>
+ 
+    <div class="container">
+        <form action="/mecanico_vehiculo/editar/{{mecanico_vehiculo.id}}" method="POST">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <div class="form-group">
+                    <label for="idMECANICO"> ID DEL MECANICO </label>
+                  </div>
+                </td>
+                <td>
+                <select name="idMECANICO" id="idMECANICO">
+                  @each(mecanico in mecanicos)
+                    <option value="{{mecanico.id}}{{mecanico.NOMBRE}}">{{mecanico.id}}/{{mecanico.NOMBRE}}</option>
+                  @endeach
+                </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-group">
+                    <label for="idVEHICULO"> ID DEL VEHICULO </label>
+                  </div>
+                </td>
+                <td>
+                <select name="idVEHICULO" id="idVEHICULO">
+                  @each(vehiculo in vehiculos)
+                    <option value="{{vehiculo.id}}{{vehiculo.MODELO}}">{{vehiculo.id}}/{{vehiculo.MODELO}}</option>
+                  @endeach
+                </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="submit" class="btn btn-dark">Editar Asignacion</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://drive.google.com/uc?authuser=0&id=1w-OStGxF1oCWETeVHDeBXtJV7-iWoR4t&export=download" type="text/css">
+  <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link href="css/modern-business.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+ <a class="btn btn-danger" href="/clientes">Regresar al Menu Clientes</a>
+  <div class=" text-center">
+    <h1>Añadir Nuevo Cliente</h1>
+  </div>
+ 
+  <div class="container">
+    <form action="/clientes/crear" method="post">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>
+              <div class="form-group">
+                <label for="NOMBRE">NOMBRE DEL CLIENTE</label>
+              </div>
+            </td>
+            <td>
+              <input type="text" name="NOMBRE" id="NOMBRE">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <label for="DIRECCION">DIRECCION DEL CLIENTE</label>
+              </div>
+            </td>
+            <td>
+              <input type="text" name="DIRECCION" id="DIRECCION">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <label for="TELEFONO">TELEFONO DEL CLIENTE</label>
+              </div>
+            </td>
+            <td>
+              <input type="text" name="TELEFONO" id="TELEFONO">
+            </td>
+          </tr>
+        </thead>
+      </table>
+      <button type="submit" class="btn btn-success">Agregar nuevo cliente</button>
+    </form>
+  </div>
+</body>
+</html>

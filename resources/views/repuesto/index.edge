@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+  <body>
+    <div class="d-flex" id="wrapper">
+
+      <nav class="navbar navbar-default navbar-fixed-top">
+        
+          <div >
+              <a href="/clientes" class="list-group-item list-group-item-action bg-light">CLIENTES</a>
+          </div>
+          <div>
+              <a href="/mecanico_responsable" class="list-group-item list-group-item-action bg-light">MECANICOS</a>
+          </div>
+          <div>
+              <a href="/repuestos" class="list-group-item list-group-item-action bg-light">REFACCIONES</a>
+          </div>
+          <div>
+              <a href="/factura" class="list-group-item list-group-item-action bg-light">TRANSACCIONES</a>
+          </div>
+        </div>
+     
+      </nav>
+
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          <h1 class="mt-4 mb-3">Seccion de Refacciones</h1>
+          <div class="row">
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                 
+                  <div class="card-body">
+                    <h4 class="card-title">AGREGAR REFACCION</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Registrar parto o refaccion de vehiculo a la base de datos del taller</h6>
+                    <a href="/repuestos/crear" class="btn btn-success">Agregar Refaccion</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                 
+                  <div class="card-body">
+                    <h4 class="card-title">APARTADO HOJAS DE PARTES</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Seccion para realizar una solicitud de obtencion/uso de refaccion o pieza para el mantenimiento del vehiculo</h6>
+                    <a href="/hoja_de_parte" class="btn btn-success">Ir a Hojas de Partes </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#repuestos">REPUESTOS</a></li>
+              <li><a data-toggle="tab" href="#hojas">HOJAS DE PARTES</a></li>
+              <li><a data-toggle="tab" href="#mecanicos">MECANICOS</a></li>
+            </ul>
+            <div class="tab-content">
+              <div id="repuestos" class="tab-pane fade in active">
+                <div class="text-center">
+                  <h3>CLIENTES REGISTRADOS</h3>
+                  <br>
+                </div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID REFACCION</th>
+                        <th>DESCRIPCION DE REFACCION</th>
+                        <th>COSTO DE REFACCION</th>
+                        <th>PRECIO DE VENTA</th>
+                        <th>IMPORTE PARCIAL POR PIEZA</th>
+                        <th>ID DE HOJA</th>
+                        <th>ID MECANICO ASIGNADO</th>
+                        <th>NOMBRE MECANICO</th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @each(repuesto in repuestos)
+                        <tr>
+                          <td>{{repuesto.id}}</td>
+                          <td>{{repuesto.DESCRIPCION}}</td>
+                          <td>{{repuesto.COSTOUNIT}}</td>
+                          <td>{{repuesto.PRECIOUNIT}}</td>
+                          <td>{{repuesto.IMP_PARCIAL}}</td>
+                          <td>{{repuesto.idHOJADEPARTE}}</td>
+                          <td>{{repuesto.idMECANICODEPARTE}}</td>
+                          <td>
+                            
+                              <a class="btn btn-info" href="/repuestos/editar/{{repuesto.id}}">Editar</a>
+                            
+                          </td>
+                          <td>
+                            
+                              <a class="btn btn-danger" href="/repuestos/eliminar/{{repuesto.id}}">Eliminar</a>
+                           
+                          </td>
+                          </td>
+                        </tr>
+                      @endeach
+                    </tbody>
+                </table>
+              </div>
+              <div id="hojas" class="tab-pane fade">
+                <div class="text-center">
+                  <h3>HOJAS DE PARTES</h3>
+                  <br>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ID HOJA</th>
+                      <th>CONCEPTO DE LA REPARACION</th>
+                      <th>CANTIDAD DE REFACCIONES</th>
+                      <th>OBJETO A REPARAR</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @each(hoja in hojas)
+                    <tr>
+                      <td>{{hoja.id}}</td>
+                      <td>{{hoja.CONCEPTO}}</td>
+                      <td>{{hoja.CANTIDAD}}</td>
+                      <td>{{hoja.REPARACION}}</td>
+                    </tr>
+                    @endeach
+                  </tbody>
+                </table>
+              </div>
+            <div id="mecanicos" class="tab-pane fade">
+              <div class="text-center">
+                <h3>TABLA DE MECANICOS</h3>
+                <br>
+              </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ID MECANICO</th>
+                      <th>NOMBRE</th>
+                      <th>DIRECCION</th>
+                      <th>TELEFONO</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @each(mecanico in mecanicos)
+                      <tr>
+                        <td>{{mecanico.id}}</td>
+                        <td>{{mecanico.NOMBRE}}</td>
+                        <td>{{mecanico.DIRECCION}}</td>
+                        <td>{{mecanico.TEL}}</td>
+                      </tr>
+                    @endeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+  </body>
+</html>

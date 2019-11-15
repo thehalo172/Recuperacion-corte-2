@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link type="text/css" href="https://drive.google.com/uc?authuser=0&id=1w-OStGxF1oCWETeVHDeBXtJV7-iWoR4t&export=download" rel="stylesheet">
+  <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link href="css/modern-business.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="jumbotron text-center">
+    <h1>EDITAR DATOS DEL VEHICULO</h1>
+  </div>
+  <a class="btn btn-danger" href="/vehiculos">Regresar al Menu Vehiculos</a>
+  <div class="container">
+  <form action="/vehiculos/editar/{{vehiculo.id}}" method="POST">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="MODELO"> MODELO VEHICULO</label>
+            </div>
+          </td>
+          <td>
+          <input class="form-control" type="text" name="MODELO" id="MODELO" value="{{vehiculo.MODELO}}">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="COLOR"> COLOR VEHICULO</label>
+            </div>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="COLOR" id="COLOR" value="{{vehiculo.COLOR}}">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="FECHA_ENT">FECHA DE INGRESO</label>
+              <p>YYYY-MM-DD</p>
+            </div>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="FECHA_ENT" id="FECHA_ENT" value="{{vehiculo.FECHA_ENT}}">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="HORA_ENT">HORA DE INGRESO</label>
+              <p>HH:MM:SS</p>
+            </div>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="HORA_ENT" id="HORA_ENT" value="{{vehiculo.HORA_ENT}}">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="CLIENTE_id">DUEÑO VEHICULO</label>
+            </div>
+          </td>
+          <td>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-dark">Editar Vehiculo del cliente</button>
+  </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link type="text/css" href="https://drive.google.com/uc?authuser=0&id=1w-OStGxF1oCWETeVHDeBXtJV7-iWoR4t&export=download" rel="stylesheet">
+  <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link href="css/modern-business.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="jumbotron text-center">
+    <h1>EDITAR DATOS DEL MECANICO</h1>
+  </div>
+  <a class="btn btn-danger" href="/mecanico_responsable">Regresar al Menu Mecanicos</a>
+  <div class="container">
+  <form action="/mecanico_responsable/editar/{{mecanico.id}}" method="POST">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <div class="form-group">
+              <label for="NOMBRE">NOMBRE MECANICO</label>
+            </div>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="NOMBRE" id="NOMBRE" value="{{mecanico.NOMBRE}}">
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <div class="form-group">
+                <label for="DIRECCION">DIRECCION MECANICO</label>
+              </div>
+            </td>
+            <td>
+              <input class="form-control" type="text" name="DIRECCION" id="DIRECCION" value="{{mecanico.DIRECCION}}">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <label for="TEL">TELEFONO MECANICO</label>
+            </div>
+            </td>
+            <td>
+              <input class="form-control" type="text" name="TEL" id="TEL" value="{{mecanico.TEL}}">
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <div class="form-group">
+              <label for="COSTOXHORA">SUELDO POR HORA MECANICO</label>
+            </div>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="COSTOXHORA" id="COSTOXHORA" value="{{mecanico.COSTOXHORA}}">
+          </td>
+        </tr>
+        <tr>
+            <td>
+            <div class="form-group">
+              <label for="CATEGORIA">CATEGORIA MECANICO</label>
+            </div>
+          </td>
+          <td>
+            <input class="form-control" type="text" name="CATEGORIA" id="CATEGORIA" value="{{mecanico.CATEGORIA}}">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-dark">Editar Mecanico</button>
+  </form>
+  </div>
+</body>
+</html>

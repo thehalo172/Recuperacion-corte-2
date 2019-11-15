@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+  <body>
+    <div class="d-flex" id="wrapper">
+     <nav class="navbar navbar-default navbar-fixed-top">
+        
+          <div >
+              <a href="/clientes" class="list-group-item list-group-item-action bg-light">CLIENTES</a>
+          </div>
+          <div>
+              <a href="/mecanico_responsable" class="list-group-item list-group-item-action bg-light">MECANICOS</a>
+          </div>
+          <div>
+              <a href="/repuestos" class="list-group-item list-group-item-action bg-light">REFACCIONES</a>
+          </div>
+          <div>
+              <a href="/factura" class="list-group-item list-group-item-action bg-light">TRANSACCIONES</a>
+          </div>
+        </div>
+     
+      </nav>
+
+      <div id="page-content-wrapper">
+
+        
+        <div class="container-fluid">
+          <h1 class="mt-4 mb-3">Seccion de Mecanicos</h1>
+          <div class="row">
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                  
+                  <div class="card-body">
+                    <h4 class="card-title">CONTRATAR MECANICO</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Contratar Mecanico para el taller</h6>
+                    <a href="/mecanico_responsable/crear" class="btn btn-success">Agregar Mecanico </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                  
+                  <div class="card-body">
+                    <h4 class="card-title">APARTADO ASIGNACION DE MECANICOS</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Asignar mecanicos para el mantenimiento de vehiculos en el sistema</h6>
+                    <a href="/mecanico_vehiculo" class="btn btn-success">Apartado de Asignacion </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class=" text-center">
+                <h3>MECANICOS REGISTRADOS</h3>
+                <br>
+              </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ID MECANICO</th>
+                      <th>NOMBRE</th>
+                      <th>DIRECCION</th>
+                      <th>TELEFONO</th>
+                      <th>SUELDO POR HORA</th>
+                      <th>CATEGORIA DEL MECANICO</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @each(mecanico in mecanicos)
+                      <tr>
+                        <td>{{mecanico.id}}</td>
+                        <td>{{mecanico.NOMBRE}}</td>
+                        <td>{{mecanico.DIRECCION}}</td>
+                        <td>{{mecanico.TEL}}</td>
+                        <td>{{mecanico.COSTOXHORA}}</td>
+                        <td>{{mecanico.CATEGORIA}}</td>
+                        <td></td>
+                         <td></td>
+                        <td>
+                          <li>
+                            <a class="btn btn-info" href="/mecanico_responsable/editar/{{mecanico.id}}">Editar</a>
+                          </li>
+                        </td>
+                        <td>
+                          <li>
+                            <a class="btn btn-danger" href="/mecanico_responsable/eliminar/{{mecanico.id}}">Eliminar</a>
+                          </li>
+                        </td>
+                        </td>
+                      </tr>
+                    @endeach
+                  </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+  </body>
+</html>

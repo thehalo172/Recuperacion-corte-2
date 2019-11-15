@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link type="text/css" href="https://drive.google.com/uc?authuser=0&id=1w-OStGxF1oCWETeVHDeBXtJV7-iWoR4t&export=download" rel="stylesheet">
+  <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link href="css/modern-business.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+ <a class="btn btn-danger" href="/repuestos">Regresar al Menu Refacciones</a>
+  <div class="text-center">
+    <h1>EDITAR DATOS DE REFACCION</h1>
+  </div>
+ 
+  <div class="container">
+    <form action="/repuestos/editar/{{repuesto.id}}" method="post">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <div class="form-group">
+                <label for="DESCRIPCION"> DESCRIPCION DEL REPUESTO </label>
+              </div>
+            </td>
+            <td>
+            <input class="form-control" type="text" name="DESCRIPCION" id="DESCRIPCION" value="{{repuesto.DESCRIPCION}}">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                 <label for="COSTOUNIT"> COSTO DE REFACCION </label>
+              </div>
+            </td>
+            <td>
+              <input class="form-control" type="text" name="COSTOUNIT" id="COSTOUNIT" value="{{repuesto.COSTOUNIT}}">
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <div class="form-group">
+                   <label for="PRECIOUNIT"> PRECIO DE VENTA </label>
+                </div>
+              </td>
+              <td>
+                <input class="form-control" type="text" name="PRECIOUNIT" id="PRECIOUNIT" value="{{repuesto.PRECIOUNIT}}">
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  <div class="form-group">
+                     <label for="IMP_PARCIAL"> IMPORTE PARCIAL POR PIEZA </label>
+                  </div>
+                </td>
+                <td>
+                  <input class="form-control" type="text" name="IMP_PARCIAL" id="IMP_PARCIAL" value="{{repuesto.IMP_PARCIAL}}">
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                    <div class="form-group">
+                       <label for="idHOJADEPARTE"> ID DE HOJA DE PARTE </label>
+                    </div>
+                  </td>
+                  <td>
+                    <select name="idHOJADEPARTE" id="idHOJADEPARTE">
+                      @each(hoja in hojas)
+                        <option value="{{hoja.id}}{{hoja.CONCEPTO}}">{{hoja.id}}/{{hoja.CONCEPTO}}</option>
+                      @endeach
+                    </select>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <div class="form-group">
+                       <label for="idMECANICODEPARTE"> MECANICO ASIGNADO </label>
+                    </div>
+                  </td>
+                  <td>
+                    <select name="idMECANICODEPARTE" id="idMECANICODEPARTE">
+                      @each(mecanico in mecanicos)
+                        <option value="{{mecanico.id}}{{mecanico.NOMBRE}}">{{mecanico.id}}/{{mecanico.NOMBRE}}</option>
+                      @endeach
+                    </select>
+                  </td>
+              </tr>
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-success">Editar Repuesto</button>
+    </form>
+  </div>
+</body>
+</html>

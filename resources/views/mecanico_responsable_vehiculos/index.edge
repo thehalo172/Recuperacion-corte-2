@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+        
+          <div >
+              <a href="/clientes" class="list-group-item list-group-item-action bg-light">CLIENTES</a>
+          </div>
+          <div>
+              <a href="/mecanico_responsable" class="list-group-item list-group-item-action bg-light">MECANICOS</a>
+          </div>
+          <div>
+              <a href="/repuestos" class="list-group-item list-group-item-action bg-light">REFACCIONES</a>
+          </div>
+          <div>
+              <a href="/factura" class="list-group-item list-group-item-action bg-light">TRANSACCIONES</a>
+          </div>
+        </div>
+     
+      </nav>
+    <div class="d-flex" id="wrapper">
+      <div id="page-content-wrapper">
+
+        <div class="container-fluid">
+          <h1 class="mt-4 mb-3">Seccion de Mecanicos Responsables</h1>
+          <div class="row">
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                  
+                  <div class="card-body">
+                    <h4 class="card-title">ASIGNAR MECANICO A VEHICULO</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Asignar mecanico para el manteniiento del vehiculo</h6>
+                    <a href="/mecanico_vehiculo/crear" class="btn btn-success">Crear Asignacion &rarr;</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                  
+                  <div class="card-body">
+                    <h4 class="card-title">APARTADO DE MECANICOS</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Apartado para contratar y administrar los mecanicos del taller en el sistema</h6>
+                    <a href="/mecanico_responsable" class="btn btn-success">Apartado de Mecanicos &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#mecanicos_vehiculos">VEHICULOS ASIGNADOS</a></li>
+                    <li><a data-toggle="tab" href="#mecanicos">MECANICOS</a></li>
+                    <li><a data-toggle="tab" href="#vehiculos">VEHICULOS</a></li>
+              </ul>
+              <div class="tab-content">
+                  <div id="mecanicos_vehiculos" class="tab-pane fade in active">
+                      <div class=" text-center">
+                          <h3>VEHICULOS ASIGNADOS A MECANICOS</h3>
+                          <br>
+                      </div>
+                      <table class="table ">
+                          <thead>
+                            <tr>
+                              <th>ID DE ASIGNACION</th>
+                              <th>ID VEHICULO</th>
+                              <th>MODELO VEHICULO</th>
+                              <th>ID MECANICO</th>
+                              <th>NOMBRE MECANICO</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @each(mecanico_vehiculo in mecanico_vehiculos)
+                              <tr>
+                                <td>{{mecanico_vehiculo.id}}</td>
+                                <td>{{mecanico_vehiculo.idVEHICULO}}</td>
+                                <td>{{mecanico_vehiculo.vehiculo.MODELO}}</td>
+                                <td>{{mecanico_vehiculo.idMECANICO}}</td>
+                                <td>{{mecanico_vehiculo.mecanico.NOMBRE}}</td>
+                                <td>
+                                  <li>
+                                    <a class="btn btn-primary" href="/mecanico_vehiculo/editar/{{mecanico_vehiculo.id}}">Editar</a>
+                                  </li>
+                                </td>
+                                <td>
+                                  <li>
+                                    <a class="btn btn-primary" href="/mecanico_vehiculo/eliminar/{{mecanico_vehiculo.id}}">Eliminar</a>
+                                  </li>
+                                </td>
+                                </td>
+                              </tr>
+                            @endeach
+                          </tbody>
+                      </table>
+                  </div>
+                  <div id="mecanicos" class="tab-pane fade">
+                    <div class=" text-center">
+                      <h3>TABLA DE MECANICOS</h3>
+                      <br>
+                    </div>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>ID MECANICO</th>
+                            <th>NOMBRE</th>
+                            <th>DIRECCION</th>
+                            <th>TELEFONO</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          @each(mecanico in mecanicos)
+                            <tr>
+                              <td>{{mecanico.id}}</td>
+                              <td>{{mecanico.NOMBRE}}</td>
+                              <td>{{mecanico.DIRECCION}}</td>
+                              <td>{{mecanico.TEL}}</td>
+                            </tr>
+                          @endeach
+                        </tbody>
+                      </table>
+                  </div>
+                  <div id="vehiculos" class="tab-pane fade">
+                    <div class="text-center">
+                      <h3>TABLA DE VEHICULOS</h3>
+                      <br>
+                    </div>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>ID VEHICULO</th>
+                          <th>MODELO</th>
+                          <th>COLOR</th>
+                          <th>ID DE CLIENTE</th>
+                          <th>NOMBRE DE CLIENTE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @each(vehiculo in vehiculos)
+                        <tr>
+                            <td>{{vehiculo.id}}</td>
+                            <td>{{vehiculo.MODELO}}</td>
+                            <td>{{vehiculo.COLOR}}</td>
+                            <td>{{vehiculo.CLIENTE_id}}</td>
+                            <td>{{vehiculo.cliente.NOMBRE}}</td>
+                        </tr>
+                        @endeach
+                      </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+
+    </div>
+   
+    <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+  </body>
+</html>
